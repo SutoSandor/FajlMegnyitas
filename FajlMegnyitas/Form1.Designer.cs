@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -50,12 +49,14 @@
             // 
             this.betoltes.AccessibleName = "";
             this.betoltes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.betoltes.Location = new System.Drawing.Point(463, 264);
+            this.betoltes.Location = new System.Drawing.Point(347, 214);
+            this.betoltes.Margin = new System.Windows.Forms.Padding(2);
             this.betoltes.Name = "betoltes";
-            this.betoltes.Size = new System.Drawing.Size(106, 37);
+            this.betoltes.Size = new System.Drawing.Size(80, 30);
             this.betoltes.TabIndex = 0;
             this.betoltes.Text = "Betöltés";
             this.betoltes.UseVisualStyleBackColor = true;
+            this.betoltes.Click += new System.EventHandler(this.betoltes_Click);
             // 
             // openFileDialog
             // 
@@ -65,7 +66,6 @@
             // 
             // saveFileDialog
             // 
-            this.saveFileDialog.CheckFileExists = true;
             this.saveFileDialog.DefaultExt = "txt";
             this.saveFileDialog.Filter = "Szöveges Fájlok|*.txt|Minden fájl|*.* ";
             // 
@@ -73,9 +73,10 @@
             // 
             this.mentes.AccessibleName = "";
             this.mentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.mentes.Location = new System.Drawing.Point(348, 264);
+            this.mentes.Location = new System.Drawing.Point(261, 214);
+            this.mentes.Margin = new System.Windows.Forms.Padding(2);
             this.mentes.Name = "mentes";
-            this.mentes.Size = new System.Drawing.Size(109, 37);
+            this.mentes.Size = new System.Drawing.Size(82, 30);
             this.mentes.TabIndex = 1;
             this.mentes.Text = "Mentés";
             this.mentes.UseVisualStyleBackColor = true;
@@ -85,9 +86,10 @@
             // 
             this.hozzaad.AccessibleName = "";
             this.hozzaad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hozzaad.Location = new System.Drawing.Point(348, 335);
+            this.hozzaad.Location = new System.Drawing.Point(261, 272);
+            this.hozzaad.Margin = new System.Windows.Forms.Padding(2);
             this.hozzaad.Name = "hozzaad";
-            this.hozzaad.Size = new System.Drawing.Size(221, 37);
+            this.hozzaad.Size = new System.Drawing.Size(166, 30);
             this.hozzaad.TabIndex = 2;
             this.hozzaad.Text = "Hozzáad";
             this.hozzaad.UseVisualStyleBackColor = true;
@@ -98,9 +100,10 @@
             this.nev.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nev.Location = new System.Drawing.Point(12, 9);
+            this.nev.Location = new System.Drawing.Point(9, 7);
+            this.nev.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nev.Name = "nev";
-            this.nev.Size = new System.Drawing.Size(274, 25);
+            this.nev.Size = new System.Drawing.Size(206, 20);
             this.nev.TabIndex = 3;
             this.nev.Text = "Név:";
             // 
@@ -109,9 +112,10 @@
             this.szuldatum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.szuldatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.szuldatum.Location = new System.Drawing.Point(12, 46);
+            this.szuldatum.Location = new System.Drawing.Point(9, 37);
+            this.szuldatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.szuldatum.Name = "szuldatum";
-            this.szuldatum.Size = new System.Drawing.Size(295, 25);
+            this.szuldatum.Size = new System.Drawing.Size(221, 20);
             this.szuldatum.TabIndex = 4;
             this.szuldatum.Text = "Születési Dátum:";
             // 
@@ -120,9 +124,10 @@
             this.nem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nem.Location = new System.Drawing.Point(12, 87);
+            this.nem.Location = new System.Drawing.Point(9, 71);
+            this.nem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nem.Name = "nem";
-            this.nem.Size = new System.Drawing.Size(295, 25);
+            this.nem.Size = new System.Drawing.Size(221, 20);
             this.nem.TabIndex = 5;
             this.nem.Text = "Nem:";
             // 
@@ -131,9 +136,10 @@
             this.hobbi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.hobbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hobbi.Location = new System.Drawing.Point(12, 131);
+            this.hobbi.Location = new System.Drawing.Point(9, 106);
+            this.hobbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.hobbi.Name = "hobbi";
-            this.hobbi.Size = new System.Drawing.Size(295, 25);
+            this.hobbi.Size = new System.Drawing.Size(221, 20);
             this.hobbi.TabIndex = 6;
             this.hobbi.Text = "Kedvenc hobbi:";
             // 
@@ -142,26 +148,29 @@
             this.ujhobbi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ujhobbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ujhobbi.Location = new System.Drawing.Point(12, 342);
+            this.ujhobbi.Location = new System.Drawing.Point(8, 275);
+            this.ujhobbi.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ujhobbi.Name = "ujhobbi";
-            this.ujhobbi.Size = new System.Drawing.Size(295, 25);
+            this.ujhobbi.Size = new System.Drawing.Size(221, 20);
             this.ujhobbi.TabIndex = 7;
             this.ujhobbi.Text = "Új hobbi:";
             // 
             // textBox_nev
             // 
             this.textBox_nev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_nev.Location = new System.Drawing.Point(226, 9);
+            this.textBox_nev.Location = new System.Drawing.Point(170, 7);
+            this.textBox_nev.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_nev.Name = "textBox_nev";
-            this.textBox_nev.Size = new System.Drawing.Size(380, 30);
+            this.textBox_nev.Size = new System.Drawing.Size(286, 26);
             this.textBox_nev.TabIndex = 8;
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.dateTimePicker.Location = new System.Drawing.Point(226, 45);
+            this.dateTimePicker.Location = new System.Drawing.Point(170, 37);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(380, 30);
+            this.dateTimePicker.Size = new System.Drawing.Size(286, 26);
             this.dateTimePicker.TabIndex = 9;
             // 
             // ferfi
@@ -169,9 +178,10 @@
             this.ferfi.AutoSize = true;
             this.ferfi.Checked = true;
             this.ferfi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ferfi.Location = new System.Drawing.Point(80, 85);
+            this.ferfi.Location = new System.Drawing.Point(60, 69);
+            this.ferfi.Margin = new System.Windows.Forms.Padding(2);
             this.ferfi.Name = "ferfi";
-            this.ferfi.Size = new System.Drawing.Size(71, 29);
+            this.ferfi.Size = new System.Drawing.Size(59, 24);
             this.ferfi.TabIndex = 10;
             this.ferfi.TabStop = true;
             this.ferfi.Text = "Férfi";
@@ -181,9 +191,10 @@
             // 
             this.no.AutoSize = true;
             this.no.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.no.Location = new System.Drawing.Point(157, 85);
+            this.no.Location = new System.Drawing.Point(118, 69);
+            this.no.Margin = new System.Windows.Forms.Padding(2);
             this.no.Name = "no";
-            this.no.Size = new System.Drawing.Size(58, 29);
+            this.no.Size = new System.Drawing.Size(47, 24);
             this.no.TabIndex = 11;
             this.no.TabStop = true;
             this.no.Text = "Nő";
@@ -192,30 +203,32 @@
             // textBox_ujhobbi
             // 
             this.textBox_ujhobbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox_ujhobbi.Location = new System.Drawing.Point(107, 342);
+            this.textBox_ujhobbi.Location = new System.Drawing.Point(80, 272);
+            this.textBox_ujhobbi.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_ujhobbi.Name = "textBox_ujhobbi";
-            this.textBox_ujhobbi.Size = new System.Drawing.Size(197, 30);
+            this.textBox_ujhobbi.Size = new System.Drawing.Size(149, 26);
             this.textBox_ujhobbi.TabIndex = 12;
             // 
             // listBox
             // 
             this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 25;
+            this.listBox.ItemHeight = 20;
             this.listBox.Items.AddRange(new object[] {
             "Úszás",
             "Horgászat",
             "Futás"});
-            this.listBox.Location = new System.Drawing.Point(17, 172);
+            this.listBox.Location = new System.Drawing.Point(13, 140);
+            this.listBox.Margin = new System.Windows.Forms.Padding(2);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(287, 129);
+            this.listBox.Size = new System.Drawing.Size(216, 104);
             this.listBox.TabIndex = 13;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 387);
+            this.ClientSize = new System.Drawing.Size(464, 314);
             this.Controls.Add(this.listBox);
             this.Controls.Add(this.textBox_ujhobbi);
             this.Controls.Add(this.no);
@@ -230,6 +243,7 @@
             this.Controls.Add(this.hozzaad);
             this.Controls.Add(this.mentes);
             this.Controls.Add(this.betoltes);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

@@ -17,7 +17,67 @@ namespace FajlMegnyitas
         {
             InitializeComponent();
         }
-        public static StreamWriter writer = new StreamWriter("cucc.txt");
+        private DateTime now = DateTime.Now;
+        private string [] tartalom = new string[4];
+        //Getek
+        private string get_nev()
+        {
+            return textBox_nev.Text;
+        }
+        private DateTime get_dateTime()
+        {
+            return dateTimePicker.Value.Date;
+        }
+        private string get_nem()
+        {
+            string nem;
+            if (ferfi.Checked == true)
+            {
+                nem = ("Férfi");
+            }
+            else
+            {
+                nem = ("Nő");
+            }
+            return nem;
+        }
+        private string get_listBox()
+        {
+            return Convert.ToString(listBox.SelectedItem);
+        }
+        //Setek
+        private void set_nev(string nev)
+        {
+            textBox_nev.Text = nev;
+        }
+        private void set_dateTime(DateTime date)
+        {
+            dateTimePicker.Value = date;
+        }
+        private void set_nem(string nem)
+        {
+            if (nem == "Férfi")
+            {
+                ferfi.Checked = true;
+            }
+            else
+            {
+                no.Checked = true;
+            }
+        }
+        private void set_listBox(string item)
+        {
+            if (listBox.Items.Contains(item))
+            {
+                listBox.SelectedItem = item;
+            }
+            else
+            {
+                listBox.Items.Add(item);
+                listBox.SelectedItem = item;
+            }
+        }
+        //Gomb funckiók
         private void hozzaad_Click(object sender, EventArgs e)
         {
             if (listBox.Items.Contains(textBox_ujhobbi.Text))
@@ -27,26 +87,52 @@ namespace FajlMegnyitas
             else
             {
                 listBox.Items.Add(textBox_ujhobbi.Text);
+                listBox.SelectedItem = textBox_ujhobbi.Text;
                 textBox_ujhobbi.Text = "";
             }
-
-
         }
-
         private void mentes_Click(object sender, EventArgs e)
         {
-            writer.WriteLine(textBox_nev.Text+";");
-            writer.WriteLine(dateTimePicker.Value+";");
-            if(ferfi.Checked == true)
+            if (String.IsNullOrEmpty(get_nev()) || get_dateTime()>now || String.IsNullOrEmpty(get_listBox()))
             {
-                writer.WriteLine("Férfi;");
+                MessageBox.Show("Nem megfelelően megadott adatok!");
             }
-            if(no.Checked == true)
+            else
             {
-                writer.WriteLine("Nő;");
+                try
+                {
+                    tartalom[0] += get_nev();
+                    tartalom[1] += get_dateTime();
+                    tartalom[2] += get_nem();
+                    tartalom[3] += get_listBox();
+                    var eredmeny = saveFileDialog.ShowDialog(this);
+                    if (eredmeny == DialogResult.OK)
+                    {
+                        string fileNev = saveFileDialog.FileName;
+                        using (var file = File.CreateText(fileNev))
+                        {
+                            file.Write(tartalom);
+                        }
+                        File.WriteAllLines(fileNev,tartalom);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    throw;
+                }
+                Array.Clear(tartalom, 0, 4);
             }
-            writer.WriteLine(listBox.SelectedItem+";");
-            writer.Close();
+        }
+        private void betoltes_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                set_nev(File.ReadAllLines(openFileDialog.FileName)[0]);
+                set_dateTime(Convert.ToDateTime(File.ReadAllLines(openFileDialog.FileName)[1]));
+                set_nem(File.ReadAllLines(openFileDialog.FileName)[2]);
+                set_listBox(File.ReadAllLines(openFileDialog.FileName)[3]);
+            }
         }
     }
 }
