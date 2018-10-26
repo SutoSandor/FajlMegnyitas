@@ -18,7 +18,7 @@ namespace FajlMegnyitas
             InitializeComponent();
         }
         private DateTime now = DateTime.Now;
-        private string [] tartalom = new string[4];
+        private string [] tartalom;
         //Getek
         private string get_nev()
         {
@@ -83,6 +83,8 @@ namespace FajlMegnyitas
             if (listBox.Items.Contains(textBox_ujhobbi.Text))
             {
                 MessageBox.Show("Ez már létezik!");
+                listBox.SelectedItem = textBox_ujhobbi.Text;
+                textBox_ujhobbi.Text = "";
             }
             else
             {
@@ -101,10 +103,13 @@ namespace FajlMegnyitas
             {
                 try
                 {
+                    /*
+                    tartalom = new string[4 + listBox.Items.Count];
                     tartalom[0] += get_nev();
                     tartalom[1] += get_dateTime();
                     tartalom[2] += get_nem();
                     tartalom[3] += get_listBox();
+                    listBox.Items.CopyTo(tartalom,4);
                     var eredmeny = saveFileDialog.ShowDialog(this);
                     if (eredmeny == DialogResult.OK)
                     {
@@ -115,23 +120,60 @@ namespace FajlMegnyitas
                         }
                         File.WriteAllLines(fileNev,tartalom);
                     }
+                    */
+                    tartalom = new string[2];
+                    string[] listBoxItems = new string[listBox.Items.Count];
+                    listBox.Items.CopyTo(listBoxItems, 0);
+                    tartalom[0] = string.Format("{0};{1};{2};{3}",get_nev(),get_dateTime(),get_nem(), get_listBox());
+                    tartalom[1] = "";
+                    for (int i = 0; i < listBoxItems.Length-1; i++)
+                    {
+                        tartalom[1] += listBoxItems[i] + ";";
+                    }
+                    tartalom[1] += listBoxItems[listBoxItems.Length-1];
+                    var eredmeny = saveFileDialog.ShowDialog(this);
+                    if (eredmeny == DialogResult.OK)
+                    {
+                        string fileNev = saveFileDialog.FileName;
+                        using (var file = File.CreateText(fileNev))
+                        {
+                            file.Write(tartalom);
+                        }
+                        File.WriteAllLines(fileNev, tartalom);
+                    }
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                     throw;
                 }
-                Array.Clear(tartalom, 0, 4);
+                
             }
         }
         private void betoltes_Click(object sender, EventArgs e)
         {
+            listBox.Items.Clear();
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                set_nev(File.ReadAllLines(openFileDialog.FileName)[0]);
-                set_dateTime(Convert.ToDateTime(File.ReadAllLines(openFileDialog.FileName)[1]));
-                set_nem(File.ReadAllLines(openFileDialog.FileName)[2]);
-                set_listBox(File.ReadAllLines(openFileDialog.FileName)[3]);
+            {   
+                string[] sorok = new string[2];
+                sorok[0] = File.ReadAllLines(openFileDialog.FileName)[0];
+                sorok[1] = File.ReadAllLines(openFileDialog.FileName)[1];
+                string[] elsosor = sorok[0].Split(';');
+                string[] masodiksor = sorok[1].Split(';');
+                set_nev(elsosor[0]);
+                set_dateTime(Convert.ToDateTime(elsosor[1]));
+                set_nem(elsosor[2]);
+                for (int i = 0; i < masodiksor.Length; i++)
+                {
+                    string item = masodiksor[i];
+                    if (!listBox.Items.Contains(item))
+                    {
+                        listBox.Items.Add(item);
+                    }
+                }
+                set_listBox(elsosor[3]);
+
             }
         }
     }
