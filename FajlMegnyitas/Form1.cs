@@ -103,24 +103,6 @@ namespace FajlMegnyitas
             {
                 try
                 {
-                    /*
-                    tartalom = new string[4 + listBox.Items.Count];
-                    tartalom[0] += get_nev();
-                    tartalom[1] += get_dateTime();
-                    tartalom[2] += get_nem();
-                    tartalom[3] += get_listBox();
-                    listBox.Items.CopyTo(tartalom,4);
-                    var eredmeny = saveFileDialog.ShowDialog(this);
-                    if (eredmeny == DialogResult.OK)
-                    {
-                        string fileNev = saveFileDialog.FileName;
-                        using (var file = File.CreateText(fileNev))
-                        {
-                            file.Write(tartalom);
-                        }
-                        File.WriteAllLines(fileNev,tartalom);
-                    }
-                    */
                     tartalom = new string[2];
                     string[] listBoxItems = new string[listBox.Items.Count];
                     listBox.Items.CopyTo(listBoxItems, 0);
